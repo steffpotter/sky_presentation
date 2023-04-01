@@ -1,0 +1,8 @@
+body { background-color: pink; margin: 0;}
+header, footer { background-color: maroon; padding: 15px; text-align: center;}
+header p, footer p { color: white; font-size: 40pt;}
+h1 { padding: 25px; border: 1px solid purple; margin: 5px; }
+h1:hover { background-color: red; }
+p { color: maroon; margin: 5px; font-weight: bold; padding-top: 25px;}
+li { color: maroon; }
+img { width: 100%; padding-top: 15px; }
