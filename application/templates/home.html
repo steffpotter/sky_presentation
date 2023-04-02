@@ -1,7 +1,42 @@
 {% extends "layout.html" %}
 {% block body_content %}
 
-<p>This is some content which has come from a content page</p>
+<div id="topic-icons">
+    <div class="table">
+        <ul id="topic-horizontal-list">
+            <li>
+                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'python') }}';">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png" height="100"/>
+                </button>
+            </li>
+
+            <li>
+                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'git') }}';">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/640px-Git-logo.svg.png" height="100"/>
+                </button>
+            </li>
+
+            <li>
+                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'agile') }}';">
+                    <img src="https://www.svgrepo.com/show/379764/agile.svg" height="200"/>
+                </button>
+            </li>
+
+            <li>
+                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'html') }}';">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/480px-HTML5_logo_and_wordmark.svg.png" height="100"/>
+                </button>
+            </li>
+
+            <li>
+                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'flask') }}';">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/640px-Flask_logo.svg.png" height="100"/>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
 
 <a class="btn-icon" href="/">AWS</a>
 
