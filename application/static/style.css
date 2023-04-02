@@ -1,13 +1,13 @@
 body {
     font-family: 'Permanent Marker', cursive;
-  }
-
-main{
     padding: 2rem;
 }
 
 a{
     text-decoration: none;
+}
+
+a.btn-nav{
     padding:0.5rem;
     margin:0.5rem;
     font-size:1rem;
@@ -18,7 +18,7 @@ a{
 }
 
 /*  button styles for the homepage */
-button {
+a.btn-icon {
     background:transparent;
     padding:0.5rem;
     margin:0.5rem;
@@ -32,7 +32,7 @@ button {
     border:solid 2px #41403E;
 }
 
-button:hover, a.btn:hover{
+a.btn-icon:hover, a.btn-nav:hover{
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
