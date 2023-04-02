@@ -14,7 +14,6 @@ a{
     font-family: 'Permanent Marker', cursive;
 
     border-bottom-right-radius: 225px 15px;
-    /* border-bottom-left-radius:15px 255px; */
     border-bottom:solid 2px #41403E;
 }
 
@@ -34,7 +33,7 @@ button {
 }
 
 button:hover, a.btn:hover{
- box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+    box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
 li{
