@@ -40,3 +40,21 @@ button:hover, a.btn:hover{
 li{
     list-style: none;
 }
+
+#topic-icons {
+    height: 0px;
+}
+
+.table {
+    display: table;
+    margin: 0 auto;
+}
+
+ul#topic-horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#topic-horizontal-list li {
+		display: inline;
+	}
