@@ -18,9 +18,9 @@ a.btn-nav{
 }
 
 /*  button styles for the homepage */
-button.btn-icon {
+a.btn-icon {
     background:transparent;
-    padding:0.5rem;
+    padding:1rem;
     margin:0.5rem;
     font-size:1rem;
     font-family: 'Permanent Marker', cursive;
@@ -30,9 +30,11 @@ button.btn-icon {
     border-bottom-right-radius: 225px 15px;
     border-bottom-left-radius:15px 255px;
     border:solid 2px #41403E;
+    display: block; 
+    height: 100%;
 }
 
-button.btn-icon:hover, a.btn-nav:hover{
+a.btn-icon:hover, a.btn-nav:hover{
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
@@ -49,6 +51,8 @@ ul#topic-horizontal-list {
 	list-style: none;
 	padding-top: 20px;
 	}
+
 	ul#topic-horizontal-list li {
-		display: inline;
+		display: inline-block;
+        height: 100px;
 	}
