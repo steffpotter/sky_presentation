@@ -1,8 +1,8 @@
 from webPage import WebPage
 from candidate import Candidate
 
-# define subclass called SubjectPage which inherits from WebPage
-class SubjectPage(WebPage):
+# define subclass called CandidatePage which inherits from WebPage
+class CandidatePage(WebPage):
 
     # constructor
     def __init__(self, title, heroBanner, candidate):

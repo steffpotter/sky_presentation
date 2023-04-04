@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block body_content %}
 
-{{subject._subjectName}}
+<h1>{{subjectPage._subject._subjectName}}</h1>
+
+{% for para in subjectPage._subject._textParagraphs %}
+    <p>{{para}}</p>
+{% endfor %}
 
 {% endblock %}

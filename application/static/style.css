@@ -1,6 +1,16 @@
 body {
     font-family: 'Permanent Marker', cursive;
     padding: 2rem;
+    max-width: 70%; 
+    margin: auto;   
+}
+
+header{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
 }
 
 a{
