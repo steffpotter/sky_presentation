@@ -17,6 +17,11 @@ a{
     text-decoration: none;
 }
 
+img.hero{
+    display: block;
+    margin: auto;
+}
+
 a.btn-nav{
     padding:0.5rem;
     margin:0.5rem;

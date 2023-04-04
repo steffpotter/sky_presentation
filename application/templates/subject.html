@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block body_content %}
 
-<h1>{{subjectPage._subject._subjectName}}</h1>
+<h1>{{subjectPage.get_subject_name()}}</h1>
 
-{% for para in subjectPage._subject._textParagraphs %}
+<img src="{{subjectPage.get_logo_url()}}" alt="{{subjectPage.get_subject_name()}} logo" height="100px" class="hero"/>
+
+{% for para in subjectPage.get_content() %}
     <p>{{para}}</p>
 {% endfor %}
 
