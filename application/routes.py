@@ -10,7 +10,7 @@ from mysql.connector import Error
 @app.route('/')
 def index():
     subjectsList = getSubjectsFromDatabase()
-    return render_template('home.html', title="Sky Get Into DevOps Course Notes", subjects=subjectsList)
+    return render_template('home.html', title="Sky Get Into DevOps", subjects=subjectsList)
 
 
 # individual subject page 
@@ -18,7 +18,7 @@ def index():
 @app.route('/subjects/<id>')
 def subject(id):
     subject = getSubjectFromDatabase(id)
-    return render_template('subject.html',  subjectPage=subject)
+    return render_template('subject.html',  subjectPage=subject, title=subject.get_subject_name())
 
 
 # individual candidate page

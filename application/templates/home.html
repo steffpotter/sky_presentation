@@ -1,7 +1,18 @@
 {% extends "layout.html" %}
 {% block body_content %}
 
+<div class="subjectIntro">
+
+    <h1>{{title}}</h1>
+
+    </div>
+    <div class="subjectContent">
+
+    <h2>We should have a little intro paragraph here to describe who we are and what our project was</h2>
+</div>
+
     <div class="table">
+
         <ul id="topic-horizontal-list">
 
             {% for sub in subjects %}
@@ -14,5 +25,27 @@
 
         </ul>
     </div>
+
+    <hr style="margin-bottom: 3rem;" />
+
+    <div class="subjectContent">
+
+        <h2>A little intro to who we are as a team then change the below so that it pulls through the team pics and links to their bio pages</h2>
+    </div>
+    
+        <div class="table">
+    
+            <ul id="topic-horizontal-list">
+    
+                {% for sub in subjects %}
+                    <li>
+                        <a class="btn-icon" type="button" href='{{ url_for('subject', id='' + sub.get_subject_id())}}'>
+                            <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
+                        </a>
+                    </li>
+                {% endfor %}
+    
+            </ul>
+        </div>
 
 {% endblock %}
