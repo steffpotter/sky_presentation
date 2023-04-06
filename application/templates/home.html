@@ -1,43 +1,51 @@
 {% extends "layout.html" %}
 {% block body_content %}
 
-<div id="topic-icons">
-    <div class="table">
-        <ul id="topic-horizontal-list">
-            <li>
-                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'python') }}';">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png" height="100"/>
-                </button>
-            </li>
+<div class="subjectIntro">
 
-            <li>
-                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'git') }}';">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/640px-Git-logo.svg.png" height="100"/>
-                </button>
-            </li>
+    <h1>{{title}}</h1>
 
-            <li>
-                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'agile') }}';">
-                    <img src="https://www.svgrepo.com/show/379764/agile.svg" height="200"/>
-                </button>
-            </li>
-
-            <li>
-                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'html') }}';">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/480px-HTML5_logo_and_wordmark.svg.png" height="100"/>
-                </button>
-            </li>
-
-            <li>
-                <button type="button" style="background-color:transparent; border-color:transparent;" onclick="window.location.href='{{ url_for( 'flask') }}';">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/640px-Flask_logo.svg.png" height="100"/>
-                </button>
-            </li>
-        </ul>
     </div>
+    <div class="subjectContent">
+
+    <h2>We should have a little intro paragraph here to describe who we are and what our project was</h2>
 </div>
 
+    <div class="table">
 
-<button>Lined Thin</button>
+        <ul id="topic-horizontal-list">
+
+            {% for sub in subjects %}
+                <li>
+                    <a class="btn-icon" type="button" href='{{ url_for('subject', subjectId='' + sub.get_subject_id())}}'>
+                        <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
+                    </a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <hr style="margin-bottom: 3rem;" />
+
+    <div class="subjectContent">
+
+        <h2>A little intro to who we are as a team then change the below so that it pulls through the team pics and links to their bio pages</h2>
+    </div>
+    
+        <div class="table">
+    
+            <ul id="topic-horizontal-list">
+    
+                {% for sub in subjects %}
+                    <li>
+                        <a class="btn-icon" type="button" href='{{ url_for('subject', subjectId='' + sub.get_subject_id())}}'>
+                            <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
+                        </a>
+                    </li>
+                {% endfor %}
+    
+            </ul>
+        </div>
 
 {% endblock %}

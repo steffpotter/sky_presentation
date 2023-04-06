@@ -1,33 +1,33 @@
 from flask import render_template
 # terminal - pip3 install flask
 from application import app
+from application.dao.candidateDao import CandidateDao
+from application.dao.subjectDao import SubjectDao
+
+# These are DAO objects - see DAO pattern. They provide a layer of abstraction between our app and the database
+# To use the mock database, set useMock parameter to True, set it to False to use the MySQL db in mySqlDb.py
+candidateDao = CandidateDao(useMock=True)
+subjectDao = SubjectDao(useMock=True)
 
 
+# default route for the homepage
 @app.route('/')
 def index():
-    return render_template('home.html', title="Sky Get Into DevOps Course Notes")
+    subjects = subjectDao.getAllSubjects()
+    return render_template('home.html', title="Sky Get Into DevOps", subjects=subjects)
 
 
-@app.route('/agile')
-def agile():
-    return render_template('agile.html',  title="Agile")
+# individual subject page
+# reads the name in as a URL parameter and uses this object to get the subject id and data from the datasource
+@app.route('/subjects/<int:subjectId>')
+def subject(subjectId):
+    subjectObj = subjectDao.getSubject(subjectId)
+    return render_template('subject.html', subjectPage=subjectObj, title=subjectObj.get_subject_name())
 
 
-@app.route('/flask')
-def flask():
-    return render_template('flask.html',  title="Flask")
-
-
-@app.route('/html')
-def html():
-    return render_template('html.html',  title="HTML")
-
-
-@app.route('/git')
-def git():
-    return render_template('git.html',  title="Git")
-
-
-@app.route('/python')
-def python():
-    return render_template('python.html',  title="Python")
+# individual candidate page
+# reads the name in as a URL parameter and uses this to get the candidate from the datasource 
+@app.route('/candidates/<name>')
+def candidate(name):
+    candidateObj = candidateDao.getCandidateByName(name)
+    return render_template('candidate.html', candidate=candidateObj)

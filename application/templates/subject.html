@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+<div class="subjectIntro">
+    <h1>{{subjectPage.get_subject_name()}}</h1>
+    <img src="{{subjectPage.get_logo_url()}}" alt="{{subjectPage.get_subject_name()}} logo" height="100px" class="hero"/>
+</div>
+
+<div class="subjectContent">
+    <h2>What we learned about {{subjectPage.get_subject_name()}}</h2>
+    {% for para in subjectPage.get_content() %}
+        <p>{{para}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
