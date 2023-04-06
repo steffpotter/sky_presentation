@@ -14,15 +14,15 @@ subjectDao = SubjectDao(useMock=True)
 @app.route('/')
 def index():
     subjects = subjectDao.getAllSubjects()
-    return render_template('home.html', title="Sky Get Into DevOps", subjects=subjects)
+    return render_template('home.html', is_home_page=True, title="Sky Get Into DevOps", subjects=subjects)
 
 
 # individual subject page
 # reads the name in as a URL parameter and uses this object to get the subject id and data from the datasource
-@app.route('/subjects/<int:subjectId>')
+@app.route('/subjects/<int:subjectId>') # todo change to subject name
 def subject(subjectId):
     subjectObj = subjectDao.getSubject(subjectId)
-    return render_template('subject.html', subjectPage=subjectObj, title=subjectObj.get_subject_name())
+    return render_template('subject.html', is_home_page=False, subjectPage=subjectObj, title=subjectObj.get_subject_name())
 
 
 # individual candidate page
@@ -30,4 +30,4 @@ def subject(subjectId):
 @app.route('/candidates/<name>')
 def candidate(name):
     candidateObj = candidateDao.getCandidateByName(name)
-    return render_template('candidate.html', candidate=candidateObj)
+    return render_template('candidate.html', is_home_page=False, candidate=candidateObj)
