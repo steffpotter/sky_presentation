@@ -1,12 +1,20 @@
 # sky_presentation
 
-You need flask installed to run this.  
+## Flask installation
+
+You need flask installed to run this repo.  
+To install Flask, run the following command within the terminal of either VS Code or PyCharm: <br />
+> $ pip install -U Flask
+
+## Branching and check out
+
 
 If you get an error run the following command in the terminal of either VS Code or PyCharm: 
 $ pip install -U Flask
 <br/>
 <br/>
 <h3>Steps for creating a new feature branch and checking out the code on to your local machine:</h3>
+
 <br/>
 * Use this [github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
 ) resource to create a new feature branch
