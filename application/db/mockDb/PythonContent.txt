@@ -1,0 +1,16 @@
+Summary of Python History:
+
+Python was created in the late 1980s by Guido van Rossum, a Dutch programmer.
+The first version of Python was released in 1991.
+Python is an interpreted, high-level, general-purpose programming language.
+Python's design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than might be possible in other languages, such as C++ or Java.
+Python has a large standard library, which provides support for many common programming tasks such as web development, data analysis, and scientific computing.
+Python's popularity has grown rapidly in recent years, with many large companies such as Google and Facebook using Python for a wide range of applications.
+
+What is Python Used for in Software Coding:
+
+Python is used for a wide range of software coding tasks, including web development, scientific computing, data analysis, artificial intelligence, machine learning, and more.
+Python is a popular language for building web applications using frameworks such as Django or Flask.
+Python is widely used in scientific computing and data analysis, with popular libraries such as NumPy, Pandas, and SciPy.
+Python is also used for machine learning and artificial intelligence applications, with libraries such as TensorFlow, Keras, and PyTorch.
+Python is often used in conjunction with other languages, such as C++ or Java, for performance-critical tasks.
