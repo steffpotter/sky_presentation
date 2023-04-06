@@ -1,5 +1,5 @@
 from application.db.mySqlDb import Db
-from application.db.mockDb import MockDb
+from application.db.mockDb.mockDb import MockDb
 
 
 class BaseDao:
