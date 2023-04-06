@@ -17,7 +17,7 @@
 
             {% for sub in subjects %}
                 <li>
-                    <a class="btn-icon" type="button" href='{{ url_for('subject', id='' + sub.get_subject_id())}}'>
+                    <a class="btn-icon" type="button" href='{{ url_for('subject', subjectId='' + sub.get_subject_id())}}'>
                         <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
                     </a>
                 </li>
@@ -39,7 +39,7 @@
     
                 {% for sub in subjects %}
                     <li>
-                        <a class="btn-icon" type="button" href='{{ url_for('subject', id='' + sub.get_subject_id())}}'>
+                        <a class="btn-icon" type="button" href='{{ url_for('subject', subjectId='' + sub.get_subject_id())}}'>
                             <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
                         </a>
                     </li>

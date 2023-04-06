@@ -53,17 +53,15 @@ create table if not exists question_answer(
 );
 
 INSERT INTO candidate (first_name, last_name, fun_fact)
-VALUES
-	("Steff", "Potter", "I play rugby!"),
-    ("Deanne", "Clarke", "I plan to visit every country in the world. I've been to 45 so far.");
+VALUES("Steff", "Potter", "I play rugby!");
 
 INSERT INTO subject (subject_name, subject_logo)
 VALUES
     ("Python", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/438px-Python-logo-notext.svg.png"), 
     ("Flask", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/640px-Flask_logo.svg.png"), 
+    ("AWS",  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png?20170912170050"),
     ("Git", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/640px-Git-logo.svg.png"), 
-    ("Agile", "https://www.svgrepo.com/show/379764/agile.svg"),
-    ("AWS", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png?20170912170050");
+    ("Agile", "https://www.svgrepo.com/show/379764/agile.svg");
 
 INSERT INTO question (question_text, subject_id)
 VALUES("What is Flask?", 2);
