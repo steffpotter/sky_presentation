@@ -1,0 +1,28 @@
+ Git is a distributed version control system used to track changes in software code over time. It allows multiple developers to collaborate on a project and keep track of changes made by each developer.
+
+ Here are some of the most common Git commands and their meanings:
+
+1.  git init: initializes a new Git repository in the current directory.
+
+2.  git clone: copies a Git repository from a remote source to your local machine.
+
+3.  git add: adds changes to the staging area, preparing them for a commit.
+
+4.  git commit: saves changes to the local repository.
+
+5.  git push: uploads local changes to a remote repository.
+
+6.  git pull: downloads changes from a remote repository to your local machine.
+
+7.  git branch: lists all the branches in the repository.
+
+8 . git checkout: switches to a different branch.
+
+9.  git merge: combines changes from one branch into another.
+
+10. git status: shows the current status of the repository and any changes that need to be committed.
+
+These are just a few of the most commonly used Git commands, but there are many more available. With Git, you can manage your code efficiently and collaborate effectively with other developers.
+
+
+
