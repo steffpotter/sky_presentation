@@ -10,9 +10,17 @@ header{
     margin-bottom: 3rem;
 }
 
+img.team{
+    max-width: 100%;
+}
+
 h1{
     text-align: center;
     font-size: 3rem;
+}
+
+h2{
+    text-align: center;
 }
 
 a{
@@ -56,8 +64,12 @@ a.btn-nav{
     border-bottom:solid 2px #41403E;
 }
 
+.answers{
+    display: flex;
+}
+
 /*  button styles for the homepage */
-a.btn-icon {
+.btn-icon {
     background:transparent;
     padding:1rem;
     margin:0.5rem;
@@ -73,7 +85,10 @@ a.btn-icon {
     height: 100%;
 }
 
-a.btn-icon:hover, a.btn-nav:hover{
+.wrong{background-color: indianred; color: white;}
+.correct{background-color: darkseagreen;}
+
+.btn-icon:hover, a.btn-nav:hover{
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
@@ -84,15 +99,33 @@ li{
 .table {
     display: table;
     margin: 0 auto;
+    text-align: center;
 }
 
 ul#topic-horizontal-list {
 	list-style: none;
-	padding-top: 20px;
-    margin-bottom: 6rem;
-	}
+	padding: 20px 0;
+}
 
+ul#topic-horizontal-list li{
+    text-align: center;
+    width: 250px;
+    vertical-align: middle;
+}
+
+ul#topic-horizontal-list li a{
+    height: 100px;
+}
+
+ul#topic-horizontal-list li img{
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+}
+
+ /* Only apply these styles on devices which are 600px or wider */   
+ @media screen and (min-width: 600px) {
 	ul#topic-horizontal-list li {
 		display: inline-block;
-        height: 100px;
 	}
+}

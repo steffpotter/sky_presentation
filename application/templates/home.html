@@ -8,7 +8,10 @@
     </div>
     <div class="subjectContent">
 
-    <h2>We are team All The Feels. Welcome to our course recap app!</h2>
+    <h2>Welcome to our course recap!</h2>
+    <p>Over the last few months we have been learning all about DevOps and how it can be used within the software development lifecycle culminating in a group project - this is ours.</p>
+    <p>We used this as an opportunity to work together to consolidate and further our learning using peer review, pair programming and a sprinkling of fun.</p>
+    <p>We hope you like it!</p>
 </div>
 
     <div class="table">
@@ -18,7 +21,7 @@
             {% for sub in subjects %}
                 <li>
                     <a class="btn-icon" type="button" href='{{ url_for('subject', subjectId='' + sub.get_subject_id())}}'>
-                        <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
+                        <img src="{{sub.get_logo_url()}}" alt="{{sub.get_subject_name()}} logo"/>
                     </a>
                     <p style="text-align:center">{{ sub.get_subject_name() }}</p>
                 </li>
@@ -31,8 +34,11 @@
 
     <div class="subjectContent">
 
+        <h2>All The Feels</h2>
+        <p>We agreed as a group that this experience has been a rollercoaster for all of us with highs and lows and, as our team name suggests, ALL the feels in between.</p>
 
 <!--        <h2>TODO: change the below so that it pulls through the team pics and links to their bio pages, possibly create an about us page.</h2>-->
-    </div>
+        <img src="{{url_for('static', filename='allthefeels.png')}}" class="team">
+</div>
 
 {% endblock %}

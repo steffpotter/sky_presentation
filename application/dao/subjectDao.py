@@ -1,5 +1,7 @@
 from application.dao.baseDao import BaseDao
 from subject import Subject
+from question import Question
+from answer import Answer
 
 
 
@@ -23,21 +25,31 @@ class SubjectDao(BaseDao):
                                subject.get("subject_name"),
                                subject.get("subject_logo"),
                                subject.get("subject_content"),
-                               subject.get("subject_questions"))
-                       for subject in subjects]
+                       [Question(question.get("question_id"), 
+                                 question.get("question_text"), 
+                                 question.get("correct_answer_id"),
+                                 [Answer(answer.get("answer_id"), 
+                                         answer.get("answer_text")) for answer in question.get("answers")]) 
+                                         for question in subject.get("subject_questions")])                       
+                                 for subject in subjects]
         return subjectObjs
 
     def getSubject(self, subjectId):
-        subject = self._db.getSubject(subjectId)
-        # todo - test how mysql connector handles error when no subject found
-
+        subject = self._db.getSubject(subjectId)  # todo - test how mysql connector handles error when no subject found
+        
         try:
-            return Subject(subject.get("subject_id"),
-                           subject.get("subject_name"),
-                           subject.get("subject_logo"),
-                           subject.get("subject_content"),
-                           subject.get("subject_questions"))
+            return Subject(subjectId,
+                        subject.get("subject_name"),
+                        subject.get("subject_logo"),
+                        subject.get("subject_content"),
+                        [Question(question.get("question_id"), 
+                                    question.get("question_text"), 
+                                    question.get("correct_answer_id"),
+                                    [Answer(answer.get("answer_id"), 
+                                            answer.get("answer_text")) for answer in question.get("answers")]) 
+                                    for question in subject.get("subject_questions")])
         except Exception as e:
             print("Error in getSubjectByName: ", e)
+
 
     # Can extend to have Add, Update and Delete functions below
