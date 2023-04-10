@@ -1,0 +1,13 @@
+Agile is an iterative and incremental approach to project management and software development that emphasizes flexibility, collaboration, and customer satisfaction. It is based on the Agile Manifesto, a set of principles for software development that prioritize individuals and interactions, working software, customer collaboration, and responding to change.
+
+There are several popular methodologies within the Agile framework, including:
+
+1. Scrum: A popular Agile framework that emphasizes collaboration, flexibility, and customer satisfaction. It involves short sprints, daily stand-up meetings, and frequent feedback cycles.
+
+2. Kanban: A method of visualizing and managing work that emphasizes continuous delivery and continuous improvement. It involves a visual board that tracks work items, and limits work in progress to ensure that resources are not over-allocated.
+
+3. Extreme Programming (XP): A software development methodology that emphasizes communication, simplicity, and feedback. It involves pair programming, frequent releases, and automated testing.
+
+4. Lean: A methodology that emphasizes maximizing value and minimizing waste. It involves continuous improvement, value stream mapping, and eliminating activities that do not add value.
+
+Overall, Agile methodologies prioritize collaboration, flexibility, and continuous improvement to ensure that the end product meets customer needs and is delivered in a timely and efficient manner.
