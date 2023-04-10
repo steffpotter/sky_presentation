@@ -39,7 +39,7 @@ class MockDb:
                                                  '/Flask_logo.svg/640px'
                                                  '-Flask_logo.svg.png',
                                  'subject_name': 'Flask',
-                                 'subject_content': "Fun Flask Content",
+                                 'subject_content': readContentFile(subject="Flask"),
                                  'subject_questions': {}},
                                 {'subject_id': 3,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93'
