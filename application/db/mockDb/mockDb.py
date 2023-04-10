@@ -32,7 +32,7 @@ class MockDb:
                                                  '-logo-notext.svg'
                                                  '/438px-Python-logo-notext.svg.png',
                                  'subject_name': 'Python',
-                                 'subject_content': "Fun Python Content",
+                                 'subject_content': readContentFile(subject="Python"),
                                  'subject_questions': {}},
                                 {'subject_id': 2,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c'
