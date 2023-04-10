@@ -1,7 +1,9 @@
 import os
-
 import logging
+from application.db.exceptions.customDbExceptions import SubjectNotFoundError, CandidateNotFoundError
+
 logger = logging.getLogger(__name__)
+
 
 def readContentFile(subject):
     """
@@ -9,7 +11,7 @@ def readContentFile(subject):
     NB - Content File needs to be in application/db/mockDb/ directory and needs to
     be titled "[INSERT SUBJECT NAME]Content.txt"
     """
-    file = open("".join([os.getcwd(), f"/application/db/mockDb/{subject}Content.txt"]))
+    file = open("".join([os.getcwd(), f"/application/subjectContent/{subject}Content.txt"]))
     content = file.read()
     file.close()
     return content
@@ -21,7 +23,7 @@ class MockDb:
     database as defined in the environment variables, this should also allow for faster development for beginners on the
     team.
 
-    The data held within this mock db is based on the db_devOpsNotes.sql file
+    The data held within this mock db is based on the 'db_devOpsNotes.sql' file
     """
 
     def __init__(self):
@@ -53,12 +55,12 @@ class MockDb:
                                                  '.svg/640px-Git'
                                                  '-logo.svg.png',
                                  'subject_name': 'Git',
-                                 'subject_content': readContentFile(subject="Git"), # CHANGED THIS
+                                 'subject_content': readContentFile(subject="Git"),
                                  'subject_questions': {}},
                                 {'subject_id': 5,
                                  'subject_logo': 'https://www.svgrepo.com/show/379764/agile.svg',
                                  'subject_name': 'Agile',
-                                 'subject_content': readContentFile(subject="Agile"), # Changed this
+                                 'subject_content': readContentFile(subject="Agile"),
                                  'subject_questions': {}}, ]
 
         self._allCandidateRows = [{'candidate_id': 1,
@@ -77,17 +79,36 @@ class MockDb:
         # happy to talk through this line! It's a next generator to find the correct row using the subjectId
 
         try:
-            subject = next(subjectRow for subjectRow in self._allSubjectRows if subjectRow.get("subject_id") == subjectId)
+            subject = next(
+                subjectRow for subjectRow in self._allSubjectRows if subjectRow.get("subject_id") == subjectId)
 
         except StopIteration as e:
-            logger.warn( msg=f"Could not retrieve subject with Id {subjectId}")
-            return None
+            raise SubjectNotFoundError
+
         except Exception as e:
-            logger.warn(msg=f"Could not retrieve subject with Id {subjectId},method failed with error:{e}")
+            logger.warning(msg=f"Could not retrieve subject with Id {subjectId},method failed with error:{e}")
+            return None
 
         return subject
 
-    def getCandidateByName(self, candidateName):
+    def getSubjectByName(self, subjectName):
+        # happy to talk through this line! It's a next generator to find the correct row using the subjectName
+
+        try:
+            subject = next(
+                subjectRow for subjectRow in self._allSubjectRows
+                if subjectRow.get("subject_name").lower() == subjectName.lower())
+
+        except StopIteration:
+            raise SubjectNotFoundError
+
+        except Exception as e:
+            logger.warning(msg=f"Could not retrieve subject with Id {subjectName},method failed with error:{e}")
+            return
+
+        return subject
+
+    def getCandidateByName(self, candidateName):  # todo add exception handling when necessary
         candidate = next(candidateRow for candidateRow in self._allCandidateRows
-                         if candidateRow.get("first_name") == candidateName)
+                         if candidateRow.get("first_name").lower() == candidateName.lower())
         return candidate

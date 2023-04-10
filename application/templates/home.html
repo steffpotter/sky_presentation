@@ -17,7 +17,7 @@
 
             {% for sub in subjects %}
                 <li>
-                    <a class="btn-icon" type="button" href='{{ url_for('subject', subjectId='' + sub.get_subject_id())}}'>
+                    <a class="btn-icon" type="button" href='{{ url_for('subject', subjectName=sub.get_subject_name())}}'>
                         <img src="{{sub.get_logo_url()}}" height="100" alt="{{sub.get_subject_name()}} logo"/>
                     </a>
                     <p style="text-align:center">{{ sub.get_subject_name() }}</p>
