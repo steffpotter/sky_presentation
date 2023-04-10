@@ -13,4 +13,23 @@
     {% endfor %}
 </div>
 
+    <hr />
+    <div class="subjectContent">
+
+    <h2>Test your Knowledge</h2>
+
+    {% for question in subjectPage.get_questions() %}
+
+        <p>{{question.get_question()}}</p>
+
+        <div class="answers">
+            {% for answer in question.get_answers() %}
+                <button class="btn-icon" value="{{answer.get_id()}}" onclick="checkAnswer('{{question.get_correct_answer()}}', '{{answer.get_id()}}', this)">{{answer.get_text()}}</button>
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+
+</div>
+
 {% endblock %}

@@ -31,7 +31,30 @@ class MockDb:
                                                  '/438px-Python-logo-notext.svg.png',
                                  'subject_name': 'Python',
                                  'subject_content': readContentFile(subject="Python"),
-                                 'subject_questions': {}},
+                                 'subject_questions': [
+                                        {
+                                            'question_id': 1, 
+                                            'question_text': 'When was the first version of Python released?',
+                                            'answers': [
+                                                {'answer_id': 1, 'answer_text':'1989'}, 
+                                                {'answer_id': 2, 'answer_text':'1991'}, 
+                                                {'answer_id': 3, 'answer_text':'1993'}, 
+                                                {'answer_id': 4, 'answer_text':'1995'}, 
+                                            ], 
+                                            'correct_answer_id': 2
+                                        }, 
+                                                                                {
+                                            'question_id': 2, 
+                                            'question_text': 'What is Python\'s design philosophy?',
+                                            'answers': [
+                                                {'answer_id': 1, 'answer_text':'Code optimization'}, 
+                                                {'answer_id': 2, 'answer_text':'Code obfuscation'}, 
+                                                {'answer_id': 3, 'answer_text':'Code readability'}, 
+                                                {'answer_id': 4, 'answer_text':'Code complexity'}, 
+                                            ], 
+                                            'correct_answer_id': 3
+                                        }
+                                ]},
                                 {'subject_id': 2,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c'
                                                  '/Flask_logo.svg/640px'
@@ -76,7 +99,7 @@ class MockDb:
         subject = next(subjectRow for subjectRow in self._allSubjectRows if subjectRow.get("subject_id") == subjectId)
         return subject
 
-    def getCandidateByName(self, candidateName):
+    def getCandidateById(self, candidate_id):
         candidate = next(candidateRow for candidateRow in self._allCandidateRows
-                         if candidateRow.get("first_name") == candidateName)
+                         if candidateRow.get("candidate_id") == candidate_id)
         return candidate

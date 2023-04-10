@@ -64,8 +64,12 @@ a.btn-nav{
     border-bottom:solid 2px #41403E;
 }
 
+.answers{
+    display: flex;
+}
+
 /*  button styles for the homepage */
-a.btn-icon {
+.btn-icon {
     background:transparent;
     padding:1rem;
     margin:0.5rem;
@@ -81,7 +85,10 @@ a.btn-icon {
     height: 100%;
 }
 
-a.btn-icon:hover, a.btn-nav:hover{
+.wrong{background-color: indianred; color: white;}
+.correct{background-color: darkseagreen;}
+
+.btn-icon:hover, a.btn-nav:hover{
     box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
 }
 
