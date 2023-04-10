@@ -10,6 +10,8 @@ candidateDao = CandidateDao(useMock=True)
 subjectDao = SubjectDao(useMock=True)
 
 
+
+
 # default route for the homepage
 @app.route('/')
 def index():
@@ -19,11 +21,23 @@ def index():
 
 
 # individual subject page
-# reads the id in as a URL parameter and uses this object to get the subject id and data from the datasource
-@app.route('/subjects/<int:subjectId>') # todo change to subject name
+
+
+# def get_subject():
+#     # Some code that returns a valid `Subject` object instead of `None`
+#     return Subject(1234)
+
+@app.route('/subjects/<int:subjectId>')
 def subject(subjectId):
     subjectObj = subjectDao.getSubject(subjectId)
-    return render_template('subject.html', is_home_page=False, subjectPage=subjectObj, title=subjectObj.get_subject_name())
+    if subjectObj:
+        return render_template('subject.html', subjectPage=subjectObj, title=subjectObj.get_subject_id())
+    else:
+        return f"Subject with Id {subjectId} does not exist"
+    # change subject_name to subject_id
+
+
+
 
 
 # individual candidate page
