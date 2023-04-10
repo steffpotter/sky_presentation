@@ -89,10 +89,25 @@ class MockDb:
                                   {'candidate_id': 2,
                                    'first_name': 'Deanne',
                                    'last_name': 'Clarke',
-                                   'fun_fact': "I plan to visit every country in the world. I've been to 45 so far."}, ]
+                                   'fun_fact': "I plan to visit every country in the world. I've been to 45 so far."},
+                                    {'candidate_id': 3,
+                                   'first_name': 'Rach',
+                                   'last_name': 'Wylie',
+                                   'fun_fact': "This is my fun fact."},
+                                    {'candidate_id': 4,
+                                   'first_name': 'Saynab',
+                                   'last_name': 'Diini',
+                                   'fun_fact': "This is my fun fact."},
+                                    {'candidate_id': 5,
+                                   'first_name': 'Angel',
+                                   'last_name': 'Surname',
+                                   'fun_fact': "This is my fun fact."}]
 
     def getAllSubjects(self):
         return self._allSubjectRows
+
+    def getAllCandidates(self):
+        return self._allCandidateRows
 
     def getSubject(self, subjectId):
         # happy to talk through this line! It's a next generator to find the correct row using the subjectId

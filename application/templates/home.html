@@ -37,7 +37,30 @@
         <h2>All The Feels</h2>
         <p>We agreed as a group that this experience has been a rollercoaster for all of us with highs and lows and, as our team name suggests, ALL the feels in between.</p>
 <!--        <h2>TODO: change the below so that it pulls through the team pics and links to their bio pages, possibly create an about us page.</h2>-->
-        <img src="{{url_for('static', filename='allthefeels.png')}}" class="team">
+</div>
+
+<div class="table">
+
+    <ul id="topic-horizontal-list">
+
+        {% for person in candidates %}
+            <li>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src='{{url_for('static', filename='' + person.get_first_name() + '.png')}}' alt="Avatar" >
+                      </div>
+                      <div class="flip-card-back">
+                        <a href='{{ url_for('candidate', candidateId='' + person.get_candidate_id())}}'>
+                            <h3>{{person.get_fullName()}}</h3>                            
+                        </a>                      
+                      </div>
+                    </div>
+                  </div>
+            </li>
+        {% endfor %}
+
+    </ul>
 </div>
 
 {% endblock %}
