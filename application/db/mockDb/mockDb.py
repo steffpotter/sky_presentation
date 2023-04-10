@@ -1,5 +1,7 @@
 import os
 
+import logging
+logger = logging.getLogger(__name__)
 
 def readContentFile(subject):
     """
@@ -30,7 +32,7 @@ class MockDb:
                                                  '-logo-notext.svg'
                                                  '/438px-Python-logo-notext.svg.png',
                                  'subject_name': 'Python',
-                                 'subject_content': readContentFile(subject="Python"),
+                                 'subject_content': "Fun Python Content",
                                  'subject_questions': {}},
                                 {'subject_id': 2,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c'
@@ -51,12 +53,12 @@ class MockDb:
                                                  '.svg/640px-Git'
                                                  '-logo.svg.png',
                                  'subject_name': 'Git',
-                                 'subject_content': "Fun Git Content",
+                                 'subject_content': readContentFile(subject="Git"), # CHANGED THIS
                                  'subject_questions': {}},
                                 {'subject_id': 5,
                                  'subject_logo': 'https://www.svgrepo.com/show/379764/agile.svg',
                                  'subject_name': 'Agile',
-                                 'subject_content': "Fun Agile Content",
+                                 'subject_content': readContentFile(subject="Agile"), # Changed this
                                  'subject_questions': {}}, ]
 
         self._allCandidateRows = [{'candidate_id': 1,
@@ -73,7 +75,16 @@ class MockDb:
 
     def getSubject(self, subjectId):
         # happy to talk through this line! It's a next generator to find the correct row using the subjectId
-        subject = next(subjectRow for subjectRow in self._allSubjectRows if subjectRow.get("subject_id") == subjectId)
+
+        try:
+            subject = next(subjectRow for subjectRow in self._allSubjectRows if subjectRow.get("subject_id") == subjectId)
+
+        except StopIteration as e:
+            logger.warn( msg=f"Could not retrieve subject with Id {subjectId}")
+            return None
+        except Exception as e:
+            logger.warn(msg=f"Could not retrieve subject with Id {subjectId},method failed with error:{e}")
+
         return subject
 
     def getCandidateByName(self, candidateName):

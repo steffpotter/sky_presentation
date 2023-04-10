@@ -2,6 +2,8 @@ from application.dao.baseDao import BaseDao
 from subject import Subject
 
 
+
+
 class SubjectDao(BaseDao):
 
     """
@@ -14,7 +16,8 @@ class SubjectDao(BaseDao):
 
     def getAllSubjects(self):
         """ Returns a list of Subject objects."""
-        subjects = self._db.getAllSubjects()  # returns list of dictionaries corresponding to Subject rows in db
+        subjects = self._db.getAllSubjects()
+        # returns list of dictionaries corresponding to Subject rows in db
         # map subject dictionaries to Subject Python object using a list comprehension
         subjectObjs = [Subject(subject.get("subject_id"),
                                subject.get("subject_name"),
@@ -25,11 +28,16 @@ class SubjectDao(BaseDao):
         return subjectObjs
 
     def getSubject(self, subjectId):
-        subject = self._db.getSubject(subjectId)  # todo - test how mysql connector handles error when no subject found
-        return Subject(subjectId,
-                       subject.get("subject_name"),
-                       subject.get("subject_logo"),
-                       subject.get("subject_content"),
-                       subject.get("subject_questions"))
+        subject = self._db.getSubject(subjectId)
+        # todo - test how mysql connector handles error when no subject found
+
+        try:
+            return Subject(subject.get("subject_id"),
+                           subject.get("subject_name"),
+                           subject.get("subject_logo"),
+                           subject.get("subject_content"),
+                           subject.get("subject_questions"))
+        except Exception as e:
+            print("Error in getSubjectByName: ", e)
 
     # Can extend to have Add, Update and Delete functions below
