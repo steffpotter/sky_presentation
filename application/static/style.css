@@ -10,6 +10,8 @@ header{
     margin-bottom: 3rem;
 }
 
+footer{margin-top: 50px;}
+
 img.team{
     max-width: 100%;
 }
@@ -121,6 +123,11 @@ ul#topic-horizontal-list li img{
     width: 100%; 
     height: 100%; 
     object-fit: contain;
+    transition: all .2s ease-in-out;
+}
+
+ul#topic-horizontal-list li img:hover{
+    transform: scale(0.90);
 }
 
  /* Only apply these styles on devices which are 600px or wider */   
@@ -129,3 +136,64 @@ ul#topic-horizontal-list li img{
 		display: inline-block;
 	}
 }
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+ .flip-card {
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin: auto;
+    margin-bottom: 50px;
+   } 
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius:15px 255px;
+    border:solid 2px #41403E;
+ }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: transparent;
+    padding: 10px;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    transform: rotateY(180deg);
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flip-card-back a{
+    width: 100%;
+    padding: 50px;
+  }
