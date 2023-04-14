@@ -1,9 +1,9 @@
 import os
+
 import logging
 from application.db.exceptions.customDbExceptions import SubjectNotFoundError, CandidateNotFoundError
 
 logger = logging.getLogger(__name__)
-
 
 def readContentFile(subject):
     """
@@ -35,7 +35,30 @@ class MockDb:
                                                  '/438px-Python-logo-notext.svg.png',
                                  'subject_name': 'Python',
                                  'subject_content': readContentFile(subject="Python"),
-                                 'subject_questions': {}},
+                                 'subject_questions': [
+                                        {
+                                            'question_id': 1,
+                                            'question_text': 'When was the first version of Python released?',
+                                            'answers': [
+                                                {'answer_id': 1, 'answer_text':'1989'},
+                                                {'answer_id': 2, 'answer_text':'1991'},
+                                                {'answer_id': 3, 'answer_text':'1993'},
+                                                {'answer_id': 4, 'answer_text':'1995'},
+                                            ],
+                                            'correct_answer_id': 2
+                                        },
+                                                                                {
+                                            'question_id': 2,
+                                            'question_text': 'What is Python\'s design philosophy?',
+                                            'answers': [
+                                                {'answer_id': 1, 'answer_text':'Code optimization'},
+                                                {'answer_id': 2, 'answer_text':'Code obfuscation'},
+                                                {'answer_id': 3, 'answer_text':'Code readability'},
+                                                {'answer_id': 4, 'answer_text':'Code complexity'},
+                                            ],
+                                            'correct_answer_id': 3
+                                        }
+                                ]},
                                 {'subject_id': 2,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c'
                                                  '/Flask_logo.svg/640px'
@@ -70,10 +93,25 @@ class MockDb:
                                   {'candidate_id': 2,
                                    'first_name': 'Deanne',
                                    'last_name': 'Clarke',
-                                   'fun_fact': "I plan to visit every country in the world. I've been to 45 so far."}, ]
+                                   'fun_fact': "I plan to visit every country in the world. I've been to 45 so far."},
+                                    {'candidate_id': 3,
+                                   'first_name': 'Rach',
+                                   'last_name': 'Wylie',
+                                   'fun_fact': "This is my fun fact."},
+                                    {'candidate_id': 4,
+                                   'first_name': 'Saynab',
+                                   'last_name': 'Diini',
+                                   'fun_fact': "This is my fun fact."},
+                                    {'candidate_id': 5,
+                                   'first_name': 'Angel',
+                                   'last_name': 'Surname',
+                                   'fun_fact': "This is my fun fact."}]
 
     def getAllSubjects(self):
         return self._allSubjectRows
+
+    def getAllCandidates(self):
+        return self._allCandidateRows
 
     def getSubject(self, subjectId):
         # happy to talk through this line! It's a next generator to find the correct row using the subjectId
@@ -108,7 +146,7 @@ class MockDb:
 
         return subject
 
-    def getCandidateByName(self, candidateName):  # todo add exception handling when necessary
+    def getCandidateById(self, candidate_id):
         candidate = next(candidateRow for candidateRow in self._allCandidateRows
-                         if candidateRow.get("first_name").lower() == candidateName.lower())
+                         if candidateRow.get("candidate_id") == candidate_id)
         return candidate

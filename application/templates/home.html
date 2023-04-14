@@ -8,7 +8,10 @@
     </div>
     <div class="subjectContent">
 
-    <h2>We are team All The Feels. Welcome to our course recap app!</h2>
+    <h2>Welcome to our course recap!</h2>
+    <p>Over the last few months we have been learning all about DevOps and how it can be used within the software development lifecycle culminating in a group project - this is ours.</p>
+    <p>We used this as an opportunity to work together to consolidate and further our learning using peer review, pair programming and a sprinkling of fun.</p>
+    <p>We hope you like it!</p>
 </div>
 
     <div class="table">
@@ -31,8 +34,34 @@
 
     <div class="subjectContent">
 
+        <h2>All The Feels</h2>
+        <p>We agreed as a group that this experience has been a rollercoaster for all of us with highs and lows and, as our team name suggests, ALL the feels in between.</p>
 
 <!--        <h2>TODO: change the below so that it pulls through the team pics and links to their bio pages, possibly create an about us page.</h2>-->
-    </div>
+</div>
+
+<div class="table">
+
+    <ul id="topic-horizontal-list">
+
+        {% for person in candidates %}
+            <li>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src='{{url_for('static', filename='' + person.get_first_name() + '.png')}}' alt="Avatar" >
+                      </div>
+                      <div class="flip-card-back">
+                        <a href='{{ url_for('candidate', candidateId='' + person.get_candidate_id())}}'>
+                            <h3>{{person.get_fullName()}}</h3>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>
 
 {% endblock %}

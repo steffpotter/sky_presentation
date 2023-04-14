@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>{{title}} Page</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="icon"  href="{{url_for('static', filename='favicon-32.png')}}">
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </head>
 <body>
     <header>
@@ -16,14 +19,19 @@
                     <li><a href="/" class="btn-nav">Home</a></li>
                 </ul>
             {% endif %}
-
         </nav>
     </header>
     <main>
 
         {% block body_content %}--{% endblock %}
+
     </main>
     <footer>
+
+        {% if not is_home_page %}
+            <a href="#" onclick="history.back()" >Go back</a>
+        {% endif %}
+
         <p>Our team includes Deanne, Rachel, Steff, Saynab and Angel</p>
     </footer>
 </body>
