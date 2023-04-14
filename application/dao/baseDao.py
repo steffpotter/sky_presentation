@@ -11,3 +11,6 @@ class BaseDao:
             self._db = MockDb()
         else:
             self._db = Db()
+
+    def getAll(self):
+        raise NotImplementedError

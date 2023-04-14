@@ -14,7 +14,7 @@ $ pip install -U Flask
 <br/>
 <br/>
 <h3>Steps for creating a new feature branch and checking out the code on to your local machine:</h3>
-<br/>
+
 * Use this [github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
 ) resource to create a new feature branch
 * Open git bash and run "$ git clone --branch [Insert your feature branch name] https://github.com/steffpotter/sky_presentation.git"

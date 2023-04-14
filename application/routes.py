@@ -10,38 +10,27 @@ candidateDao = CandidateDao(useMock=True)
 subjectDao = SubjectDao(useMock=True)
 
 
-
-
 # default route for the homepage
 @app.route('/')
 def index():
-    subjects = subjectDao.getAllSubjects()
-    candidates = candidateDao.getAllCandidates()
+    subjects = subjectDao.getAll()
+    candidates = candidateDao.getAll()
     return render_template('home.html', is_home_page=True, title="Sky Get Into DevOps", subjects=subjects, candidates=candidates)
 
 
 # individual subject page
-
-
-# def get_subject():
-#     # Some code that returns a valid `Subject` object instead of `None`
-#     return Subject(1234)
-
-@app.route('/subjects/<int:subjectId>')
-def subject(subjectId):
-    subjectObj = subjectDao.getSubject(subjectId)
+# reads the name in as a URL parameter and uses it to fetch subject data from the db and create a Subject object from it
+@app.route('/subjects/<subjectName>')
+def subject(subjectName):
+    subjectObj = subjectDao.getSubjectByName(subjectName)
     if subjectObj:
-        return render_template('subject.html', subjectPage=subjectObj, title=subjectObj.get_subject_id())
+        return render_template('subject.html', subjectPage=subjectObj, title=subjectName)
     else:
-        return f"Subject with Id {subjectId} does not exist"
-    # change subject_name to subject_id
-
-
-
+        return render_template('subjectNotFound.html', subjectName=subjectName, title='Subject Not Found')
 
 
 # individual candidate page
-# reads the id in as a URL parameter and uses this to get the candidate from the datasource 
+# reads the id in as a URL parameter and uses this to get the candidate from the datasource
 @app.route('/candidates/<int:candidateId>')
 def candidate(candidateId):
     candidateObj = candidateDao.getCandidateById(candidateId)
