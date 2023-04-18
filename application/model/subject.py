@@ -7,7 +7,7 @@ class Subject:
         self._subject_name = subject_name
         self._logo_url = logo_url
         self._content = content
-        self._questions = questions  # todo after MVP
+        self._questions = questions
 
     def get_subject_name(self):
         return self._subject_name

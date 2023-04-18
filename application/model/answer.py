@@ -1,5 +1,5 @@
 # define subclass called Answer
-class Answer():
+class Answer:
 
     # constructor
     def __init__(self, answer_id, answer_text):
