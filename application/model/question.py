@@ -1,5 +1,5 @@
 # define subclass called Question
-class Question():
+class Question:
 
     # constructor
     def __init__(self, question_id, questionText, correct_answer_id, answers):

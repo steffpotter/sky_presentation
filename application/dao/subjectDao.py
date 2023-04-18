@@ -47,15 +47,15 @@ class SubjectDao(BaseDao):
 
     def _createSubjectObjFromRawData(self, subject):
         subject = Subject(subject.get("subject_id"),
-                           subject.get("subject_name"),
-                           subject.get("subject_logo"),
-                           subject.get("subject_content"),
-                           [Question(question.get("question_id"),
-                                     question.get("question_text"),
-                                     question.get("correct_answer_id"),
-                                     [Answer(answer.get("answer_id"),
-                                             answer.get("answer_text")) for answer in question.get("answers")])
-                            for question in subject.get("subject_questions")])
+                          subject.get("subject_name"),
+                          subject.get("subject_logo"),
+                          subject.get("subject_content"),
+                          [Question(question.get("question_id"),
+                                    question.get("question_text"),
+                                    question.get("correct_answer_id"),
+                                    [Answer(answer.get("answer_id"),
+                                            answer.get("answer_text")) for answer in question.get("answers")])
+                           for question in subject.get("subject_questions")])
 
         return subject
 

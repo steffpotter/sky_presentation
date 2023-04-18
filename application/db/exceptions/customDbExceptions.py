@@ -4,7 +4,7 @@ class SubjectNotFoundError(Exception):
 
 
 class CandidateNotFoundError(Exception):
-    """Raised when subject cannot be found in database"""
+    """Raised when candidate cannot be found in database"""
     pass
 
 # Todo connection exceptions for real db connections

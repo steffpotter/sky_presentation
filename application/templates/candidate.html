@@ -4,8 +4,12 @@
 
 <img src='{{url_for('static', filename='allthefeels_' + candidate.get_first_name() + '.png')}}' alt="Avatar" >
 
-{{candidate.get_fullName()}}
-{{candidate.get_fun_fact()}}
+<h1>{{candidate.get_fullName()}}</h1>
+<p>My fun fact is that {{candidate.get_fun_fact()}}</p>
+
+<p>Vist my <a href={{candidate.get_github_html_link()}} style="color:blue;">github</a> account to see what I've built</p>
+<p>I have {{candidate.get_number_of_repos()}} public repos so far!</p>
+
 
 
 
