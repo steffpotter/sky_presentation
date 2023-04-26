@@ -6,8 +6,13 @@ You need flask installed to run this repo.
 To install Flask, run the following command within the terminal of either VS Code or PyCharm: <br />
 > $ pip install -U Flask
 
-## Branching and check out
+## Unit Testing 
 
+To get unit testing working you need to have "mock" and "requests" installed.  To install run the following commands within the terminal window; 
+> $ pip install mock
+> $ pip install requests
+
+## Branching and check out
 
 If you get an error run the following command in the terminal of either VS Code or PyCharm: 
 $ pip install -U Flask
@@ -26,7 +31,6 @@ Use [this](https://gist.github.com/whoisryosuke/36b3b41e738394170b9a7c230665e6b9
 
 <h3>Steps for merging your feature into main</h3>
 Use [this](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) resource.
-
 
 <h3>Steps for updating you local code with the latest changes in the main branch:</h3>
 * Run <code>git pull origin main</code>
