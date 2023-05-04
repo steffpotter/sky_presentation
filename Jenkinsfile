@@ -38,7 +38,7 @@ pipeline{
             {
                 steps {
                     script{
-                        dockerImage.run()
+                        sh 'docker run -p 5000:5000 -d' dockerImage
                     }
                 }
             }
