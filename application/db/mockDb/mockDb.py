@@ -13,7 +13,7 @@ def readContentFile(subject):
     """
     cwd = os.getcwd()
     cwdFragments = re.split("(sky_presentation)", cwd)
-    path = ''.join([cwdFragments[0], cwdFragments[1], f"/application/subjectContent/{subject}Content.txt"])
+    path = ''.join([cwdFragments[0], f"/application/subjectContent/{subject}Content.txt"])
     file = open(path)
     content = file.read()
     file.close()
