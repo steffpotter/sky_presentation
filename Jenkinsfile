@@ -32,5 +32,15 @@ pipeline{
                            }
                 }
             }
+         
+         
+            stage ("Run container")
+            {
+                steps {
+                    script{
+                        dockerImage.run()
+                    }
+                }
+            }
         }
 }
