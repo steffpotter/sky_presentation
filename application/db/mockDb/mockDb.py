@@ -92,7 +92,7 @@ class MockDb:
         self._allCandidateRows = [{'candidate_id': 1,
                                    'first_name': 'Steff',
                                    'last_name': 'Potter',
-                                   'fun_fact': 'I play rugby!',
+                                   'fun_fact': 'I have played rugby for over 20 years',
                                    'git_username': 'steffpotter'},
                                   {'candidate_id': 2,
                                    'first_name': 'Deanne',
