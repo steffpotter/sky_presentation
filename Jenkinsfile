@@ -10,7 +10,7 @@ pipeline{
             stage ('Run Tests'){
                 steps{
                     script {
-                        echo 'Running tests...'
+
                         sh '''#!/bin/bash
 
                             export WORKSPACE=`pwd`
@@ -18,6 +18,8 @@ pipeline{
                             virtualenv testenv -p /usr/bin/python3
 
                             source testenv/bin/activate
+
+                            echo 'Running tests...'
 
                             pip install -r requirements.txt
 
