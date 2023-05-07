@@ -9,8 +9,10 @@ pipeline{
 
             stage ('Run Tests'){
                 steps{
-                    sh 'python -m unittest discover tests/db'
-                    sh 'python -m unittest discover tests/dao'
+                    script {
+                        sh 'python -m unittest discover tests/db'
+                        sh 'python -m unittest discover tests/dao'
+                    }
                 }
             }
 
