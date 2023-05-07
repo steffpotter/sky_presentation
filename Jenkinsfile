@@ -10,16 +10,20 @@ pipeline{
             stage ('Run Tests'){
                 steps{
                     script {
-                        export WORKSPACE=`pwd`
+                        echo 'Running tests...'
+                        sh '''#!/bin/bash
 
-                        virtualenv testenv -p /usr/bin/python3
+                            export WORKSPACE=`pwd`
 
-                        source testenv/bin/activate
+                            virtualenv testenv -p /usr/bin/python3
 
-                        pip install -r requirements.txt
+                            source testenv/bin/activate
 
-                        sh 'python -m unittest discover tests/db'
-                        sh 'python -m unittest discover tests/dao'
+                            pip install -r requirements.txt
+
+                            python -m unittest discover tests/db
+                            python -m unittest discover tests/dao
+                        '''
                     }
                 }
             }
