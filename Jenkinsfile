@@ -1,11 +1,19 @@
 pipeline{
  environment {
- registry = "deannec/allthefeels"
+ registry = "deannec/allthefeels-test"
         registryCredentials = "deannec_dockerhub_id"
         dockerImage = ""
     }
     agent any
         stages {
+
+            stage ('Run Tests'){
+                steps{
+                    sh 'python -m unittest discover tests/db'
+                    sh 'python -m unittest discover tests/dao'
+                }
+            }
+
             stage ('Build Docker Image'){
                 steps{
                     script {
@@ -38,7 +46,7 @@ pipeline{
             {
                 steps {
                     script{
-                        dockerImage.run('-p 5000:5000 -d')
+                        dockerImage.run('-p 6000:6000 -d')
                     }
                 }
             }
