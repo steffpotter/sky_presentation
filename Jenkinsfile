@@ -10,6 +10,14 @@ pipeline{
             stage ('Run Tests'){
                 steps{
                     script {
+                        export WORKSPACE=`pwd`
+
+                        virtualenv testenv -p /usr/bin/python3
+
+                        source testenv/bin/activate
+
+                        pip install -r requirements.txt
+
                         sh 'python -m unittest discover tests/db'
                         sh 'python -m unittest discover tests/dao'
                     }
