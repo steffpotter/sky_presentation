@@ -4,10 +4,8 @@ from application import app
 from application.dao.candidateDao import CandidateDao
 from application.dao.subjectDao import SubjectDao
 
-# These are DAO objects - see DAO pattern. They provide a layer of abstraction between our app and the database
-# To use the mock database, set useMock parameter to True, set it to False to use the MySQL db in mySqlDb.py
-candidateDao = CandidateDao(useMock=True)
-subjectDao = SubjectDao(useMock=True)
+candidateDao = CandidateDao()
+subjectDao = SubjectDao()
 
 
 # default route for the homepage

@@ -10,7 +10,7 @@ class SubjectDaoTests(TestCase):
     def setUpClass(cls):
         # Class method to set up attributes for use within test methods
         # Instantiate an instance of SubjectDao that we will use in all tests
-        cls._subjectDao = SubjectDao(useMock=True)
+        cls._subjectDao = SubjectDao()
 
     def testGetAll(self):
         # Given SubjectDao instance

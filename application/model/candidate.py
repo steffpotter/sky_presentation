@@ -12,7 +12,7 @@ class Candidate:
         self._numberOfRepos = numberOfRepos
 
     def get_first_name(self):
-        return str(self._firstName)
+        return str(self._firstName).lower()
 
     def get_fullName(self):
         return self._firstName + " " + self._lastName
