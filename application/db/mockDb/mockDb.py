@@ -5,19 +5,25 @@ from application.db.exceptions.customDbExceptions import SubjectNotFoundError, C
 
 logger = logging.getLogger(__name__)
 
+
 def readContentFile(subject):
     """
     Build up content file path using os.getcwd and append the remainder of the file path.
     NB - Content File needs to be in application/db/mockDb/ directory and needs to
     be titled "[INSERT SUBJECT NAME]Content.txt"
     """
-    cwd = os.getcwd()
-    cwdFragments = re.split("(sky_presentation)", cwd)
-    path = ''.join([cwdFragments[0], cwdFragments[1], f"/application/subjectContent/{subject}Content.txt"])
-    file = open(path)
-    content = file.read()
-    file.close()
-    return content
+    try:
+        cwd = os.getcwd()
+        cwdFragments = re.split("(sky_presentation)", cwd)
+        path = ''.join([cwdFragments[0], f"/application/subjectContent/{subject}Content.txt"])
+        logger.warning(f"Cwd: {cwd}")
+        logger.warning(f"Retrieving subject content from path: {path}")
+        file = open(path)
+        content = file.read()
+        file.close()
+        return content
+    except FileNotFoundError as e:
+        logger.warning("Unable to retrieve subject content due to non existent path")
 
 
 class MockDb:
@@ -92,7 +98,7 @@ class MockDb:
         self._allCandidateRows = [{'candidate_id': 1,
                                    'first_name': 'Steff',
                                    'last_name': 'Potter',
-                                   'fun_fact': 'I play rugby!',
+                                   'fun_fact': 'I have played rugby for over 20 years',
                                    'git_username': 'steffpotter'},
                                   {'candidate_id': 2,
                                    'first_name': 'Deanne',
@@ -158,7 +164,7 @@ class MockDb:
 
         try:
             candidate = next(candidateRow for candidateRow in self._allCandidateRows
-                         if candidateRow.get("candidate_id") == candidate_id)
+                             if candidateRow.get("candidate_id") == candidate_id)
 
         except StopIteration as e:
             raise CandidateNotFoundError from e

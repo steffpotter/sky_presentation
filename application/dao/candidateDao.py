@@ -9,8 +9,8 @@ class CandidateDao(BaseDao):
     and the application. This gives the dev team the freedom to evolve the db and business/ application layer separately.
     """
 
-    def __init__(self, useMock):
-        super().__init__(useMock)
+    def __init__(self):
+        super().__init__()
         self._gitUserApiClient = GitHubUserClient()
 
     def getAll(self):
