@@ -10,6 +10,15 @@ pipeline{
             stage ('Build Docker Image'){
                 steps{
                     script {
+                        sh '''#!/bin/bash
+
+                                if ! sudo service docker status | grep -q "running"; then
+                                  echo "Docker is not running. Starting Docker service..."
+                                  sudo service docker start
+                                else
+                                  echo "Docker is already running."
+                                fi
+                            '''
                         dockerImage = docker.build(registry)
                     }
                 }
