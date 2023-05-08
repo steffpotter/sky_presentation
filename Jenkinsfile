@@ -71,10 +71,10 @@ pipeline{
                                 echo "Existing container found, stopping existing container"
                                 docker stop "$container_name"
                             fi
-
-                            echo "Starting new container"
-                            docker run -p 5000:5000 -d --name "$container_name"
                         '''
+
+                        echo "Starting new container"
+                        dockerImage.run('-d --name "$container_name" -p 5000:5000')
                     }
                 }
             }
