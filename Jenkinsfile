@@ -67,10 +67,11 @@ pipeline{
                         container_name="allTheFeelsWeb"
                         if docker inspect "$container_name" >/dev/null 2>&1; then
                             echo 'Existing container found, stopping existing container'
-                            sh 'docker stop $container_name'
+                            sh 'docker stop "$container_name"'
 
-                            echo 'Starting new container'
-                            dockerImage.run('-name $container_name -p 5000:5000 -d')
+                        fi
+                        echo 'Starting new container'
+                        dockerImage.run('-p 5000:5000 -d --name "$container_name"')
                     }
                 }
             }
