@@ -65,7 +65,7 @@ pipeline{
                 steps {
                     script{
                         container_name="allTheFeelsWeb"
-                        if docker inspect "$container_name" >/dev/null 2>&1; then
+                        if (docker inspect "$container_name" >/dev/null 2>&1); then
                             echo 'Existing container found, stopping existing container'
                             sh 'docker stop "$container_name"'
 
