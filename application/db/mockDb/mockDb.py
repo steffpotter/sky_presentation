@@ -174,7 +174,7 @@ class MockDb:
                                          ],
                                          'correct_answer_id': 1
                                      }
-                                 ]},
+                                 ]}, 
                                 {'subject_id': 5,
                                  'subject_logo': 'https://www.svgrepo.com/show/379764/agile.svg',
                                  'subject_name': 'Agile',
