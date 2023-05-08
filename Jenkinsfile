@@ -13,7 +13,7 @@ pipeline{
 
                         sh '''#!/bin/bash
 
-                            python3.6 -m venv testenv
+                            python -m venv testenv
 
                             source ${WORKSPACE}/testenv/bin/activate
 
