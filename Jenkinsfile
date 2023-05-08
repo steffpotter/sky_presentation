@@ -68,8 +68,10 @@ pipeline{
 
                             container_name="allTheFeelsWeb"
                             if docker inspect "$container_name" >/dev/null 2>&1; then
+                            echo "container exists"
                                 echo "Existing container found, stopping existing container"
                                 docker stop "$container_name"
+                                docker rm "$container_name"
                             fi
                         '''
 
