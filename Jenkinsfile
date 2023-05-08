@@ -13,11 +13,9 @@ pipeline{
 
                         sh '''#!/bin/bash
 
-                            export WORKSPACE=`pwd`
+                            python3.6 -m venv testenv
 
-                            virtualenv testenv -p /usr/bin/python3
-
-                            source testenv/bin/activate
+                            source ${WORKSPACE}/testenv/bin/activate
 
                             echo 'Running tests...'
 
