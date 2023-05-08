@@ -15,8 +15,8 @@ def readContentFile(subject):
     try:
         cwd = os.getcwd()
         cwdFragments = re.split("(sky_presentation)", cwd)
-        logger.warning(cwdFragments)
         path = ''.join([cwdFragments[0], f"sky_presentation/application/subjectContent/{subject}Content.txt"])
+        logger.warning(path)
         file = open(path)
         content = file.read()
         file.close()
