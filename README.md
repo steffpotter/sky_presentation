@@ -35,5 +35,5 @@ Use [this](https://docs.github.com/en/pull-requests/collaborating-with-pull-requ
 Given that we don't know for sure whether we will be given time/ allowance to provision a hosted db I've
 added the ability to toggle between use of a mock python based db or a real MySQL db using Steff's script.
 
-If you want to use the mock db, in routes.py, set the "useMock" parameter in the SubjectDao and CandidateDao
-constructor to True. Set it to false if you want to use the real MySQL database. 
+If you want to use the mock db, in routes.py, set the "useMock" environment variable to 'True'.
+Set it to 'False' if you want to use the real MySQL database. 

@@ -67,6 +67,7 @@ pipeline{
                         sh '''#!/bin/bash
 
                             container_name="allTheFeelsWeb"
+                            use_mock="True"
                             if docker inspect "$container_name" >/dev/null 2>&1; then
                                 echo "container exists"
                                 echo "Existing container found, stopping existing container"
@@ -75,7 +76,7 @@ pipeline{
                             fi
 
                             echo "Starting new container"
-                            docker run -d -p 5000:5000 --name "$container_name"  deannec/allthefeels-test
+                            docker run -d -p 5000:5000 -e USEMOCK=$use_mock --name "$container_name"  deannec/allthefeels-test
 
                         '''
                     }
