@@ -28,7 +28,6 @@ pipeline{
 
 
                             python3 -m venv testenv
-                            # source ${WORKSPACE}/testenv/bin/activate
                             source testenv/bin/activate
 
 
@@ -65,7 +64,11 @@ pipeline{
             {
                 steps {
                     script{
-                        dockerImage.run('-p 6000:6000 -d')
+                        echo 'Stopping existing container'
+                        sh 'docker stop allTheFeelsWeb'
+                        # run new container
+                        echo 'Starting new container'
+                        dockerImage.run('-name allTheFeelsWeb -p 5000:5000 -d')
                     }
                 }
             }
