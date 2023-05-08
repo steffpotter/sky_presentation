@@ -68,15 +68,16 @@ pipeline{
 
                             container_name="allTheFeelsWeb"
                             if docker inspect "$container_name" >/dev/null 2>&1; then
-                            echo "container exists"
+                                echo "container exists"
                                 echo "Existing container found, stopping existing container"
                                 docker stop "$container_name"
                                 docker rm "$container_name"
                             fi
-                        '''
 
-                        echo "Starting new container"
-                        dockerImage.run('-d --name "$container_name" -p 5000:5000')
+                            echo "Starting new container"
+                            docker run -d -p 5000:5000 --name "$container_name"  deannec/allthefeels-test
+
+                        '''
                     }
                 }
             }
