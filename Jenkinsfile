@@ -7,6 +7,14 @@ pipeline{
     agent any
         stages {
 
+            stage ('Build Docker Image'){
+                steps{
+                    script {
+                        dockerImage = docker.build(registry)
+                    }
+                }
+            }
+
             stage ('Run Tests'){
                 steps{
                     script {
@@ -14,6 +22,9 @@ pipeline{
                         sh '''#!/bin/bash
 
                             python -m venv testenv
+                            python --version
+                            echo "PATH is: $PATH"
+
 
                             source ${WORKSPACE}/testenv/bin/activate
 
@@ -24,14 +35,6 @@ pipeline{
                             python -m unittest discover tests/db
                             python -m unittest discover tests/dao
                         '''
-                    }
-                }
-            }
-
-            stage ('Build Docker Image'){
-                steps{
-                    script {
-                        dockerImage = docker.build(registry)
                     }
                 }
             }
