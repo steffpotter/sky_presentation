@@ -23,6 +23,7 @@ pipeline{
 
                             python3 -m venv testenv
                             python3 --version
+                            pip --version
                             echo "PATH is: $PATH"
 
 
