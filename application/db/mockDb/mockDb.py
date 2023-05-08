@@ -5,19 +5,23 @@ from application.db.exceptions.customDbExceptions import SubjectNotFoundError, C
 
 logger = logging.getLogger(__name__)
 
+
 def readContentFile(subject):
     """
     Build up content file path using os.getcwd and append the remainder of the file path.
     NB - Content File needs to be in application/db/mockDb/ directory and needs to
     be titled "[INSERT SUBJECT NAME]Content.txt"
     """
-    cwd = os.getcwd()
-    cwdFragments = re.split("(sky_presentation)", cwd)
-    path = ''.join([cwdFragments[0], f"/application/subjectContent/{subject}Content.txt"])
-    file = open(path)
-    content = file.read()
-    file.close()
-    return content
+    try:
+        cwd = os.getcwd()
+        cwdFragments = re.split("(sky_presentation)", cwd)
+        path = ''.join([cwdFragments[0], f"sky_presentation/application/subjectContent/{subject}Content.txt"])
+        file = open(path)
+        content = file.read()
+        file.close()
+        return content
+    except FileNotFoundError as e:
+        logger.warning("Unable to retrieve subject content due to non existent path")
 
 
 class MockDb:
@@ -158,7 +162,7 @@ class MockDb:
 
         try:
             candidate = next(candidateRow for candidateRow in self._allCandidateRows
-                         if candidateRow.get("candidate_id") == candidate_id)
+                             if candidateRow.get("candidate_id") == candidate_id)
 
         except StopIteration as e:
             raise CandidateNotFoundError from e
