@@ -66,7 +66,7 @@ pipeline{
                     script{
                         echo 'Stopping existing container'
                         sh 'docker stop allTheFeelsWeb'
-                        # run new container
+
                         echo 'Starting new container'
                         dockerImage.run('-name allTheFeelsWeb -p 5000:5000 -d')
                     }
