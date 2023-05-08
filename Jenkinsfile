@@ -21,16 +21,16 @@ pipeline{
 
                         sh '''#!/bin/bash
 
-                            python3 -m venv testenv
+                            echo 'Running tests...'
                             python3 --version
                             python -m pip --version
                             echo "PATH is: $PATH"
 
 
+                            python3 -m venv testenv
                             # source ${WORKSPACE}/testenv/bin/activate
-                            # source testenv/bin/activate
+                            source testenv/bin/activate
 
-                            echo 'Running tests...'
 
                             python -m pip install -r requirements.txt
 
