@@ -10,7 +10,6 @@ pipeline{
             stage ('Build Docker Image'){
                 steps{
                     script {
-                        sh 'sudo service docker start'
                         dockerImage = docker.build(registry)
                     }
                 }
