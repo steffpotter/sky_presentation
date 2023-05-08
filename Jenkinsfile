@@ -21,16 +21,17 @@ pipeline{
 
                         sh '''#!/bin/bash
 
-                            python -m venv testenv
+                            python3 -m venv testenv
                             python --version
                             echo "PATH is: $PATH"
 
 
-                            source ${WORKSPACE}/testenv/bin/activate
+                            # source ${WORKSPACE}/testenv/bin/activate
+                            # source testenv/bin/activate
 
                             echo 'Running tests...'
 
-                            pip install -r requirements.txt
+                            python -m pip install -r requirements.txt
 
                             python -m unittest discover tests/db
                             python -m unittest discover tests/dao
