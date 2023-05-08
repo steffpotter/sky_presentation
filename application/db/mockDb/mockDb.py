@@ -68,26 +68,152 @@ class MockDb:
                                                  '-Flask_logo.svg.png',
                                  'subject_name': 'Flask',
                                  'subject_content': readContentFile(subject="Flask"),
-                                 'subject_questions': {}},
+                                 'subject_questions': [
+                                    {
+                                         'question_id': 1,
+                                         'question_text': 'What is Flask?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'A popular Python web framework'},
+                                             {'answer_id': 2, 'answer_text': 'A database management system'},
+                                             {'answer_id': 3, 'answer_text': 'A cloud-based storage solution'},
+                                             {'answer_id': 4, 'answer_text': 'A machine learning library'},
+                                        ],
+                                        'correct_answer_id': 1
+                                    },
+                                    {
+                                         'question_id': 2,
+                                         'question_text': 'What are some advantages of using Flask?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'It is easy to deploy and maintain'},
+                                             {'answer_id': 2, 'answer_text': 'It can only be used with Python'},
+                                             {'answer_id': 3, 'answer_text': 'It provides advanced machine learning features'},
+                                             {'answer_id': 4, 'answer_text': 'It is a heavyweight framework'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     }
+                                 ]},
                                 {'subject_id': 3,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93'
                                                  '/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg'
                                                  '.png?20170912170050',
                                  'subject_name': 'AWS',
                                  'subject_content': readContentFile(subject="AWS"),
-                                 'subject_questions': {}},
+                                 'subject_questions': [
+                                    {
+                                         'question_id': 1,
+                                         'question_text': 'What is AWS?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'A cloud computing platform'},
+                                             {'answer_id': 2, 'answer_text': 'A database management system'},
+                                             {'answer_id': 3, 'answer_text': 'A machine learning library'},
+                                             {'answer_id': 4, 'answer_text': 'An antivirus software'},
+                                        ],
+                                        'correct_answer_id': 1
+                                    },
+                                    {
+                                         'question_id': 2,
+                                         'question_text': 'What services does AWS provide?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'Computing power, storage, databases, and networking'},
+                                             {'answer_id': 2, 'answer_text': 'Video editing and animation tools'},
+                                             {'answer_id': 3, 'answer_text': 'Game development engines'},
+                                             {'answer_id': 4, 'answer_text': 'Accounting software'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     },
+                                     {
+                                         'question_id': 3,
+                                         'question_text': 'What are some benefits of using AWS?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'Reduced IT costs and improved agility'},
+                                             {'answer_id': 2, 'answer_text': 'Increased hardware requirements and longer deployment times'},
+                                             {'answer_id': 3, 'answer_text': 'Limited scalability and flexibility'},
+                                             {'answer_id': 4, 'answer_text': 'Inability to integrate with other tools and services'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     }
+                                 ]},
+
                                 {'subject_id': 4,
                                  'subject_logo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo'
                                                  '.svg/640px-Git'
                                                  '-logo.svg.png',
                                  'subject_name': 'Git',
                                  'subject_content': readContentFile(subject="Git"),
-                                 'subject_questions': {}},
+                                 'subject_questions': [
+                                     {
+                                         'question_id': 1,
+                                         'question_text': 'What is GitHub?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'A web-based platform for version control and collaboration'},
+                                             {'answer_id': 2, 'answer_text': 'A database management system'},
+                                             {'answer_id': 3, 'answer_text': 'A cloud-based storage solution'},
+                                             {'answer_id': 4, 'answer_text': 'A machine learning library'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     },
+                                     {
+                                         'question_id': 1,
+                                         'question_text': 'What can developers do with GitHub?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'Create and store code repositories'},
+                                             {'answer_id': 2, 'answer_text': 'Collaborate on code with other team members'},
+                                             {'answer_id': 3, 'answer_text': 'Manage software development projects'},
+                                             {'answer_id': 4, 'answer_text': 'All of the above'},
+                                         ],
+                                         'correct_answer_id': 4
+                                     },
+                                     {
+                                         'question_id': 2,
+                                         'question_text': 'What project management tools does GitHub provide?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'Issue tracking, milestone tracking, and project boards'},
+                                             {'answer_id': 2, 'answer_text': 'Video editing and animation tools'},
+                                             {'answer_id': 3, 'answer_text': 'Game development engines'},
+                                             {'answer_id': 4, 'answer_text': 'Accounting software'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     }
+                                 ]},
                                 {'subject_id': 5,
                                  'subject_logo': 'https://www.svgrepo.com/show/379764/agile.svg',
                                  'subject_name': 'Agile',
                                  'subject_content': readContentFile(subject="Agile"),
-                                 'subject_questions': {}}, ]
+                                 'subject_questions': [
+                                     {
+                                         'question_id': 1,
+                                         'question_text': 'What are Agile practices?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'A set of values and principles used in software development'},
+                                             {'answer_id': 2, 'answer_text': 'A database management system'},
+                                             {'answer_id': 3, 'answer_text': 'A cloud-based storage solution'},
+                                             {'answer_id': 4, 'answer_text': 'A machine learning library'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     },
+                                     {
+                                         'question_id': 1,
+                                         'question_text': 'What is Scrum?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'An Agile methodology that uses short iterations called sprints to deliver working software'},
+                                             {'answer_id': 2, 'answer_text': 'A project management tool used to manage financial accounts'},
+                                             {'answer_id': 3, 'answer_text': 'A database management system'},
+                                             {'answer_id': 4, 'answer_text': 'A machine learning algorithm'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     },
+                                     {
+                                         'question_id': 2,
+                                         'question_text': 'What are some benefits of using Agile practices?',
+                                         'answers': [
+                                             {'answer_id': 1, 'answer_text': 'Improved project success rates, reduced time-to-market, and enhanced customer satisfaction'},
+                                             {'answer_id': 2, 'answer_text': 'Longer development times and higher costs'},
+                                             {'answer_id': 3, 'answer_text': 'Reduced collaboration and flexibility'},
+                                             {'answer_id': 4, 'answer_text': 'Inability to respond to changes in requirements'},
+                                         ],
+                                         'correct_answer_id': 1
+                                     }
+                                 ]}, ]
 
         self._allCandidateRows = [{'candidate_id': 1,
                                    'first_name': 'Steff',
@@ -111,9 +237,9 @@ class MockDb:
                                    "git_username": "sdiini001"},
                                   {'candidate_id': 5,
                                    'first_name': 'Angel',
-                                   'last_name': 'Surname',
-                                   'fun_fact': "This is my fun fact.",
-                                   'git_username': ""}]
+                                   'last_name': 'Momoh',
+                                   'fun_fact': "I have climbed 3 volcanos",
+                                   'git_username': "angelangela1"}]
 
     def getAllSubjects(self):
         return self._allSubjectRows
