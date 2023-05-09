@@ -16,20 +16,25 @@
 
 </div>
 
-    <hr />
-    <div class="subjectContent">
+    <div class="subjectQuiz">
 
-    <h2>Test your Knowledge</h2>
+    <div class="subjectIntro">
+        <h2>Test your Knowledge</h2>
+    </div>
 
     {% for question in subjectPage.get_questions() %}
 
         <p>{{question.get_question()}}</p>
 
         <div class="answers">
-            {% for answer in question.get_answers() %}
-                <button class="btn-icon" value="{{answer.get_id()}}" onclick="checkAnswer('{{question.get_correct_answer()}}', '{{answer.get_id()}}', this)">{{answer.get_text()}}</button>
-            {% endfor %}
+            <ul id="topic-horizontal-list">
+                {% for answer in question.get_answers() %}
+                    <li><button class="btn-icon" value="{{answer.get_id()}}" onclick="checkAnswer('{{question.get_correct_answer()}}', '{{answer.get_id()}}', this)">{{answer.get_text()}}</button></li>
+                {% endfor %}
+            </ul>
         </div>
+
+        <hr />
 
     {% endfor %}
 

@@ -5,6 +5,10 @@ body {
     margin: auto;   
 }
 
+p{
+    font-size: larger;
+}
+
 header{
     text-align: center;
     margin-bottom: 3rem;
@@ -41,13 +45,19 @@ div.subjectIntro, footer{
     border:solid 4px #41403E;
 
     padding: 2rem;
-    background-color: aliceblue;
+    background-color: pink;
     align-items: center;
     margin-bottom: 3rem;
 }
 
 div.subjectContent{
     width: 70%; 
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+div.subjectQuiz{
+    width: 80%; 
     margin: auto;
     margin-bottom: 3rem;
 }
@@ -70,12 +80,16 @@ a.btn-nav{
     display: flex;
 }
 
+.answers li{
+    height: 100%
+}
+
 /*  button styles for the homepage */
 .btn-icon {
     background:transparent;
     padding:1rem;
     margin:0.5rem;
-    font-size:1rem;
+    font-size:larger;
     font-family: 'Permanent Marker', cursive;
 
     border-top-left-radius: 255px 15px;
